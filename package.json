@@ -8,10 +8,9 @@
   },
   "author": "Gururaj Basavaraj",
   "license": "ISC",
-  {"dependencies":{
+  "dependencies":{
   "express":"latest",
   "body-parser":"latest",
   "fs":"latest"
-  }
   }
 }
