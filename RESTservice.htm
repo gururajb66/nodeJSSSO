@@ -1,0 +1,39 @@
+<html>
+<h1>GET Service</h1>
+<input type="text" id="getEmpId">
+<button type="button" onclick="getEmp()">GET</button>
+<p id="showemp"></p>
+<h1>PUT Service</h1>
+<div>
+<form action = "/update_emp" method = "POST">
+         Id		: <input type = "text" name = "id">  <br>
+         Name	: <input type = "text" name = "name"><br>
+         Dept	: <input type = "text" name = "dept"><br><br>
+         <input type = "submit" value = "PUT">
+      </form>
+</div>
+<h1>ADD Service</h1>
+<div>
+<form action = "/add_emp" method = "POST">
+         Id		: <input type = "text" name = "id">  <br>
+         Name	: <input type = "text" name = "name"><br>
+         Dept	: <input type = "text" name = "dept"><br><br>
+         <input type = "submit" value = "ADD">
+      </form>
+</div>
+<script>
+function getEmp(){
+var empid = document.getElementById("getEmpId").value;
+var xmlhtp = new XMLHttpRequest();
+xmlhtp.open("GET","/get_emp?id="+empid,true);
+xmlhtp.send();
+  xmlhtp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("showemp").innerHTML = this.responseText;
+    }
+}
+}
+
+</script>
+
+</html>

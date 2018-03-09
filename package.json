@@ -1,0 +1,11 @@
+{
+  "name": "employeeapp",
+  "version": "1.0.0",
+  "description": "simple employee get update add pp",
+  "main": "RESTservice.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gururaj Basavaraj",
+  "license": "ISC"
+}
