@@ -4,6 +4,7 @@ var bodyparser=require('body-parser');
 var app=exp();
 var urlencodedparser  = bodyparser.urlencoded({extended:true});
 app.get('/RESTservice.htm',function(r,s){
+	console.log("Got a request");
 	s.sendFile(__dirname+'/RESTservice.htm');
 	});
 app.get('/get_emp',function(r,s){
