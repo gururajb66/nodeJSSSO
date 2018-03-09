@@ -11,6 +11,6 @@
   "dependencies":{
   "express":"latest",
   "body-parser":"latest",
-  "fs":"latest"
+  "fs-extra":"latest"
   }
 }
