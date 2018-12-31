@@ -49,7 +49,7 @@ var Strategy = new OpenIDConnectStrategy({
             done(null, profile);
         })
       }
-})
+)
  
 passport.use(Strategy); 
  
@@ -85,7 +85,3 @@ const server = app.listen(process.env.PORT||"8080",function(){
 	const port = server.address().port;
 	console.log("Emp App is listening on "+port);
 	});
-
-//app.post();
-
-//app.put();t
