@@ -7,12 +7,12 @@ var passport = require('passport');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var app = express();
-
+console.log('one');
 app.use(cookieParser());
 app.use(session({resave:'true',saveUninitialized:'true', secret:'keyboard cat'}));
 app.use(passport.initialize());
 app.use(passport.session());
-
+console.log('two');
 passport.serializeUser(function(user,done){
 done(null,user);
 });
@@ -29,6 +29,8 @@ var token_url = ssoConfig.credentials.tokenEndpointUrl;
 var issuer_id = ssoConfig.credentials.issuerIdentifier;
 var callback_url = 'https://nodejssso.herokuapp.com/auth/sso/callback';
  
+console.log('three'+token_url+'  '+issuer_id);
+
 var OpenIDConnectStrategy = require('passport-idaas-openidconnect').IDaaSOIDCStrategy;
 var Strategy = new OpenIDConnectStrategy({
                 authorizationURL : authorization_url,
@@ -52,6 +54,7 @@ var Strategy = new OpenIDConnectStrategy({
 passport.use(Strategy); 
  
 app.get('/auth/sso/callback',function(req,res,next) {
+	console.log('call came back after auth');
     var redirect_url = req.session.originalUrl;
         passport.authenticate('openidconnect', {
                 successRedirect: redirect_url,
@@ -60,6 +63,7 @@ app.get('/auth/sso/callback',function(req,res,next) {
     });
  
 app.get('/failure', function(req, res) { 
+	console.log('failedd');
              res.send('login failed'); });
  
 app.get('/login', passport.authenticate('openidconnect', {})); 
